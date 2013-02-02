@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<ui:composition template="/templates/interna.xhtml">
+	<ui:define name="titulo">Lançamentos</ui:define>
+	
+	<ui:define name="corpo">
+		<ui:include src="lancamento_edicao.xhtml"/>
+		<br/>
+		<ui:include src="lancamento_lista.xhtml"/>
+	</ui:define>
+</ui:composition>
+</html>
