@@ -8,7 +8,7 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-import com.sun.xml.internal.ws.wsdl.writer.UsingAddressing;
+
 
 import br.com.financeiro.entitys.Categoria;
 import br.com.financeiro.entitys.Conta;
