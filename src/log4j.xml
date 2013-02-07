@@ -6,7 +6,7 @@
 		<param name="ConversionPattern" value="%d{HH:mm:ss,SSS} %5p [%-20c{1}] %m%n" />
 	</layout>
 	</appender>
-		<logger name="br.com.caelum.notasfiscais">
+		<logger name="br.com.financeiro">
 		<level value="debug" />
 	<appender-ref ref="stdout"/>
 	</logger>
