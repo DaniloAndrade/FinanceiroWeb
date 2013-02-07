@@ -19,11 +19,11 @@
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="financeiroDataSource"
 				authorities-by-username-query="SELECT u.login, p.permissao 
-											 FROM usuario u, usuario_permissao p 
+											 FROM Usuario u, usuario_permissao p 
 											WHERE u.codigo = p.usuario 
 											  AND u.login = ?"
 				users-by-username-query="SELECT login, senha, ativo 
-									   FROM usuario 
+									   FROM Usuario 
 									  WHERE login = ?" />
 		</authentication-provider>
 	</authentication-manager>
