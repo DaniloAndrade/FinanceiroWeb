@@ -22,8 +22,9 @@
 			
 			<h:inputText id="descricao" value="#{lancamentoBean.editado.descricao}" required="true" size="30"/>
 			
-			<h:inputText value="#{lancamentoBean.editado.valor}" size="10"  >
+			<h:inputText value="#{lancamentoBean.editado.valor}" size="10" label="Valor" >
 				<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+				<f:validateDoubleRange minimum="0.00" maximum="9999999.99" />
 			</h:inputText>
 			
 		</h:panelGrid>
