@@ -5,5 +5,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
     version="2.1">
-
+	<application>
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+			<supported-locale>en_US</supported-locale>
+			<supported-locale>es_ES</supported-locale>
+			<supported-locale>pt_BR</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>br.com.financeiro.idioma.mensagens</base-name>
+			<var>msg</var>
+		</resource-bundle>
+		<!--
+		<message-bundle>br.com.financeiro.idioma.CustomMessages</message-bundle>
+		  -->
+	</application>
 </faces-config>

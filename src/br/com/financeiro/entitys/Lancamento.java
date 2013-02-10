@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -53,6 +54,9 @@ public class Lancamento {
 	@JoinColumn(nullable = false )
 	@ForeignKey(name="fk_lancamento_conta")
 	private Conta conta;
+	
+	@OneToOne(fetch = FetchType.LAZY, mappedBy="lancamento")
+	private Cheque cheque;
 	
 	@Temporal(TemporalType.DATE)
 	private Date data;
@@ -117,6 +121,15 @@ public class Lancamento {
 	
 	public void setConta(Conta conta) {
 		this.conta = conta;
+	}
+	
+	
+	public Cheque getCheque() {
+		return cheque;
+	}
+	
+	public void setCheque(Cheque cheque) {
+		this.cheque = cheque;
 	}
 
 	@Override
