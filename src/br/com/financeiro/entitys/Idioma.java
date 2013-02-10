@@ -6,18 +6,22 @@ import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 import org.hibernate.annotations.NaturalId;
 
 import br.com.financeiro.converter.ConverterID;
 
 @Entity @Cacheable
+@NamedQuery(name="buscarPorIso", query="select i from Idioma i where i.codigoISO = :codigo")
 public class Idioma implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	public static final String BUSCAR_POR_ISO = "buscarPorIso";
 
 	@Id
 	@GeneratedValue

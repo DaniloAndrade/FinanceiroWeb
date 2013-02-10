@@ -38,4 +38,6 @@ public class IdiomaBean implements Serializable{
 	public Idioma carregar(Idioma idioma) {
 		return daoIdioma.buscaPorId(idioma.getCodigo());
 	}
+	
+	
 }
