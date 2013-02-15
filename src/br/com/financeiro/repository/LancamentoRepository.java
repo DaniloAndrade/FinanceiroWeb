@@ -18,8 +18,8 @@ public class LancamentoRepository implements ILancamentoRepository {
 	
 	
 	@Override
-	public void salvar(Lancamento lancamento) {
-		dao.atualiza(lancamento);
+	public Lancamento salvar(Lancamento lancamento) {
+		return dao.atualiza(lancamento);
 	}
 
 	@Override

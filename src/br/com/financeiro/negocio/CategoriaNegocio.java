@@ -91,38 +91,38 @@ public class CategoriaNegocio implements Serializable{
 		
 		
 		despesas.addCategoria(new Categoria(null, usuario, "Moradia", -1));
-		despesas.addCategoria(new Categoria(null, usuario, "Alimetação", -1));
-		despesas.addCategoria(new Categoria(null, usuario, "Vestuário", -1));
+		despesas.addCategoria(new Categoria(null, usuario, "AlimetaÃ§Ã£o", -1));
+		despesas.addCategoria(new Categoria(null, usuario, "VestuÃ¡rio", -1));
 		despesas.addCategoria(new Categoria(null, usuario, "Deslocamento", -1));
 		despesas.addCategoria(new Categoria(null, usuario, "Cuidados Pessoais", -1));
-		despesas.addCategoria(new Categoria(null, usuario, "Educação", -1));
-		despesas.addCategoria(new Categoria(null, usuario, "Saúde", -1));
+		despesas.addCategoria(new Categoria(null, usuario, "EducaÃ§Ã£o", -1));
+		despesas.addCategoria(new Categoria(null, usuario, "SaÃºde", -1));
 		despesas.addCategoria(new Categoria(null, usuario, "Lazer", -1));
 		despesas.addCategoria(new Categoria(null, usuario, "Despesas Financeiras", -1));
 		repository.salvar(despesas);
 		
 		Categoria receitas = new Categoria(null, usuario, "RECEITAS", 1);
-		receitas.addCategoria(new Categoria(null, usuario, "Salário", 1));
-		receitas.addCategoria(new Categoria(null, usuario, "Restituições", 1));
+		receitas.addCategoria(new Categoria(null, usuario, "SalÃ¡rio", 1));
+		receitas.addCategoria(new Categoria(null, usuario, "RestituiÃ§Ãµes", 1));
 		receitas.addCategoria(new Categoria(null, usuario, "Rendimento", 1));
 		
 		repository.salvar(receitas);
 		
 		/*despesas = repository.salvar(despesas);
 		repository.salvar(new Categoria(despesas, usuario, "Moradia", -1));
-		repository.salvar(new Categoria(despesas, usuario, "Alimetação", -1));
-		repository.salvar(new Categoria(despesas, usuario, "Vestuário", -1));
+		repository.salvar(new Categoria(despesas, usuario, "Alimetaï¿½ï¿½o", -1));
+		repository.salvar(new Categoria(despesas, usuario, "Vestuï¿½rio", -1));
 		repository.salvar(new Categoria(despesas, usuario, "Deslocamento", -1));
 		repository.salvar(new Categoria(despesas, usuario, "Cuidados Pessoais", -1));
-		repository.salvar(new Categoria(despesas, usuario, "Educação", -1));
-		repository.salvar(new Categoria(despesas, usuario, "Saúde", -1));
+		repository.salvar(new Categoria(despesas, usuario, "Educaï¿½ï¿½o", -1));
+		repository.salvar(new Categoria(despesas, usuario, "Saï¿½de", -1));
 		repository.salvar(new Categoria(despesas, usuario, "Lazer", -1));
 		repository.salvar(new Categoria(despesas, usuario, "Despesas Financeiras", -1));
 		
 		Categoria receitas = new Categoria(null, usuario, "RECEITAS", 1);
 		
-		repository.salvar(new Categoria(receitas, usuario, "Salário", 1));
-		repository.salvar(new Categoria(receitas, usuario, "Restituições", 1));
+		repository.salvar(new Categoria(receitas, usuario, "Salï¿½rio", 1));
+		repository.salvar(new Categoria(receitas, usuario, "Restituiï¿½ï¿½es", 1));
 		repository.salvar(new Categoria(receitas, usuario, "Rendimento", 1));*/
 	}
 	

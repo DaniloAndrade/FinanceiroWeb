@@ -43,7 +43,7 @@ public class Cheque {
 	@Column(nullable=false, precision=1)
 	private Character situacao;
 	
-	@OneToOne(fetch = FetchType.LAZY , cascade={CascadeType.MERGE,CascadeType.PERSIST})
+	@OneToOne(fetch = FetchType.LAZY , cascade={CascadeType.MERGE})
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	@JoinColumn(nullable=true)
 	@ForeignKey(name="fk_cheque_lancamento")
