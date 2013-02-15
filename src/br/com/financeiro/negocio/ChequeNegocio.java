@@ -1,5 +1,6 @@
 package br.com.financeiro.negocio;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
@@ -10,9 +11,10 @@ import br.com.financeiro.entitys.ChequeID;
 import br.com.financeiro.entitys.Conta;
 import br.com.financeiro.entitys.Lancamento;
 import br.com.financeiro.exceptions.NegocioException;
+import br.com.financeiro.infra.Transactional;
 import br.com.financeiro.repository.IChequeRepository;
 
-public class ChequeNegocio {
+public class ChequeNegocio implements Serializable{
 	
 	@Inject
 	private IChequeRepository repository;
@@ -84,6 +86,7 @@ public class ChequeNegocio {
 		}
 	}
 	
+	
 	public void desvinculaLancamento(Conta conta, Long numeroCheque)throws NegocioException{
 		ChequeID chequeID = new ChequeID();
 		chequeID.setCodigoConta(conta.getCodigo());
@@ -94,6 +97,8 @@ public class ChequeNegocio {
 			throw new NegocioException("Não é possível usar cheque cancelado.");
 		}else{
 			cheque.setSituacao(Cheque.SITUACAO_CHEQUE_NAO_EMITIDO);
+			Lancamento lancamento = cheque.getLancamento();
+			lancamento.setCheque(null);
 			cheque.setLancamento(null);
 			this.salvar(cheque);
 		}

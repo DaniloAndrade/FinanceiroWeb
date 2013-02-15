@@ -9,7 +9,7 @@ import br.com.financeiro.entitys.Lancamento;
 
 public interface ILancamentoRepository {
 	
-	void salvar(Lancamento lancamento);
+	Lancamento salvar(Lancamento lancamento);
 	void excluir(Lancamento lancamento);
 	Lancamento carregar(Long id);
 	List<Lancamento> listar(Conta conta, Date dataInicio, Date dataFim);
