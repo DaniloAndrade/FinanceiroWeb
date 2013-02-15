@@ -24,7 +24,7 @@ public class LancamentoNegocio implements Serializable{
 	
 	
 	
-	public void salvar(Lancamento  lancamento){
+	public Lancamento salvar(Lancamento  lancamento){
 		if(lancamento.getId() == 0){
 			lancamento.setId(null);
 		}
@@ -34,7 +34,7 @@ public class LancamentoNegocio implements Serializable{
 		lancamento.setCategoria(categoria);
 		lancamento.setConta(conta);
 		lancamento.setUsuario(usuario);
-		lancamentoRepository.salvar(lancamento);
+		return lancamentoRepository.salvar(lancamento);
 	}
 	
 	

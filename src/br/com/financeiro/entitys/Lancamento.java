@@ -37,25 +37,25 @@ public class Lancamento {
 	@GeneratedValue
 	private Long id;
 	
-	@ManyToOne(fetch=FetchType.LAZY, cascade={CascadeType.MERGE,CascadeType.DETACH})
+	@ManyToOne(fetch=FetchType.LAZY, cascade={CascadeType.MERGE})
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	@JoinColumn(nullable = false )
 	@ForeignKey(name="fk_lancamento_usuario")
 	private Usuario usuario;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade={CascadeType.MERGE,CascadeType.DETACH})
+	@ManyToOne(fetch=FetchType.EAGER, cascade={CascadeType.MERGE})
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	@JoinColumn(nullable = false )
 	@ForeignKey(name="fk_lancamento_categoria")
 	private Categoria categoria;
 	
-	@ManyToOne(fetch=FetchType.LAZY , cascade={CascadeType.MERGE,CascadeType.DETACH})
+	@ManyToOne(fetch=FetchType.LAZY , cascade={CascadeType.MERGE})
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	@JoinColumn(nullable = false )
 	@ForeignKey(name="fk_lancamento_conta")
 	private Conta conta;
 	
-	@OneToOne(fetch = FetchType.LAZY, mappedBy="lancamento")
+	@OneToOne(fetch = FetchType.LAZY, mappedBy="lancamento", cascade={CascadeType.MERGE})
 	private Cheque cheque;
 	
 	@Temporal(TemporalType.DATE)

@@ -9,11 +9,13 @@
 	<h:form id="edicao" prependId="false">
 		<h:messages />
 		<h:inputHidden value="#{lancamentoBean.editado.id}" />
-		<h:panelGrid columns="4">
+		<h:panelGrid columns="5">
 			<h:outputLabel value="Data" for="data" />
 			<h:outputLabel value="Categoria" for="categoria" />
 			<h:outputLabel value="Descrição" for="descricao" />
 			<h:outputLabel value="Valor" for="valor" />
+			<h:outputLabel value="Cheque" for="cheque" />
+			
 			<p:calendar id="data" value="#{lancamentoBean.editado.data}" pattern="dd/MM/yyyy"/>
 			
 			<h:selectOneMenu value="#{lancamentoBean.editado.categoria}" converter="annotationConverter">
@@ -25,6 +27,10 @@
 			<h:inputText value="#{lancamentoBean.editado.valor}" size="10" label="Valor" >
 				<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
 				<f:validateDoubleRange minimum="0.00" maximum="9999999.99" />
+			</h:inputText>
+			
+			<h:inputText value="#{lancamentoBean.numeroCheque}" maxlength="6" size="6" valueChangeListener="#{lancamentoBean.mudouCheque}">
+				<f:ajax event="change"/>
 			</h:inputText>
 			
 		</h:panelGrid>
