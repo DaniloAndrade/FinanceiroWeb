@@ -2,14 +2,19 @@ package br.com.financeiro.negocio;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Locale;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import br.com.financeiro.entitys.Usuario;
 import br.com.financeiro.entitys.enums.Permissao;
+import br.com.financeiro.exceptions.NegocioException;
+import br.com.financeiro.exceptions.UtilException;
 import br.com.financeiro.repository.ContaRepository;
 import br.com.financeiro.repository.UsuarioRepository;
+import br.com.financeiro.util.EmailUtil;
+import br.com.financeiro.util.MensagemUtil;
 
 @RequestScoped
 public class UsuarioNegocio implements Serializable {
@@ -53,5 +58,19 @@ public class UsuarioNegocio implements Serializable {
 	
 	public List<Usuario> listar() {
 		return this.repository.listaTodos();
+	}
+	
+	public void enviarEmailPosCadastramento(Usuario usuario) throws NegocioException{
+		String [] info = usuario.getIdioma().getCodigoISO().split("_");
+		Locale locale = new Locale(info[0],info[1]);
+		String titulo = MensagemUtil.getMensagem(locale, "email_titulo");
+		String mensagem = MensagemUtil.getMensagem(locale, "email_mensagem",usuario.getNome(),usuario.getLogin(),usuario.getSenha());
+		try{
+			EmailUtil emailUtil = new EmailUtil();
+			emailUtil.enviarEmail(null, usuario.getEmail(), titulo, mensagem);
+			
+		}catch(UtilException e){
+			throw new NegocioException(e);
+		}
 	}
 }

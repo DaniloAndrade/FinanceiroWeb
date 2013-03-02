@@ -14,6 +14,7 @@ import org.apache.myfaces.extensions.cdi.core.api.scope.conversation.ViewAccessS
 import br.com.financeiro.entitys.Conta;
 import br.com.financeiro.entitys.Usuario;
 import br.com.financeiro.entitys.enums.Permissao;
+import br.com.financeiro.exceptions.NegocioException;
 import br.com.financeiro.infra.Transactional;
 import br.com.financeiro.negocio.CategoriaNegocio;
 import br.com.financeiro.negocio.ContaNegocio;
@@ -82,6 +83,17 @@ public class UsuarioBean implements Serializable{
 			this.conta.setFavorita(true);
 			this.contaNegocio.salvar(this.conta);
 			
+		}
+		
+		if(this.destinoSalvar.equals("usuarioSucesso")){
+			try{
+				usuarioNegocio.enviarEmailPosCadastramento(usuarioSalvo);
+				
+			}catch(NegocioException e){
+				FacesMessage message = new FacesMessage("Não foi possivel enviar o e-mail de cadastro do usuário. Erro: " +e.getMessage() );
+				context.addMessage(null, message);
+				throw new RuntimeException(e);
+			}
 		}
 		
 		return this.destinoSalvar;
