@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -42,7 +43,7 @@ public class Usuario {
 	private boolean ativo;
 	
 	
-	@ElementCollection(targetClass=String.class)
+	@ElementCollection(targetClass=String.class,fetch=FetchType.EAGER)
 	@JoinTable(name="usuario_permissao" , 
 				uniqueConstraints= {@UniqueConstraint(columnNames = {"usuario","permissao"})},
 				joinColumns=@JoinColumn(name="usuario"))
