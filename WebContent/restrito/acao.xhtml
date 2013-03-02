@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<ui:composition template="/templates/interna.xhtml">
+	<ui:define name="titulo">
+		Cadastro de Ações
+	</ui:define>
+	
+	<ui:define name="corpo">
+		<h:outputScript target="head">
+			var estiloGrafico = {
+				padding:20,
+				lagend : {
+					display : "right",
+					spacing : 10
+				}
+			};
+		</h:outputScript>
+		<ui:include src="acao_graficoscarteira.xhtml"/>
+		<br />
+		<ui:include src="acao_edicao.xhtml"/>
+		<br />
+		<ui:include src="acao_listagem.xhtml"/>
+		<br />
+		<ui:include src="acao_graficos.xhtml"/>
+	</ui:define>
+</ui:composition>
+</html>
